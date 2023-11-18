@@ -1,27 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LogSight.API.Model;
-
-public class ApplicationDbContext : DbContext
-{
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-    {
-    }
-
-    public DbSet<Service> Services { get; set; }
-    public DbSet<Log> Logs { get; set; }
-}
-
-public class Service : BaseModel<Guid>
-{
-    public string Url { get; set; }
-    public string Name { get; set; }
-}
-public class BaseModel<T>
-{
-    public T Id { get; set; }
-}
 
 [Table("AppLogs", Schema = "Log")]
 public class Log : BaseModel<int>
